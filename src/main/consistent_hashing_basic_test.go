@@ -72,3 +72,34 @@ func TestRemoveNode(t *testing.T) {
 	}
 
 }
+
+func TestGetKey(t *testing.T) {
+	r := NewRing()
+	r.Nodes = append(r.Nodes, NewNode("abc"), NewNode("xyz"), NewNode("pqr"))
+
+	tests := []struct {
+		desc         string
+		Key          string
+		expectedHost string
+	}{
+		{
+			desc:         "When for a given key Get is called",
+			Key:          "abc",
+			expectedHost: "abc",
+		},
+	}
+
+	for _, tt := range tests {
+
+		t.Run(tt.desc, func(t *testing.T) {
+
+			host := r.Get(tt.Key)
+
+			if host != tt.expectedHost {
+				t.Errorf("Wanted %s got %s", tt.expectedHost, host)
+			}
+
+		})
+	}
+
+}
