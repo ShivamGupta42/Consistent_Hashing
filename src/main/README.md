@@ -1,6 +1,7 @@
 # Consistent Hashing Ring Implementation in Go
 
-This repository contains a Go implementation of a consistent hashing ring. It's a simple yet effective way to distribute data across a cluster of nodes, commonly used in distributed systems for load balancing and data partitioning.
+This repository contains a Go implementation of a consistent hashing ring. 
+It's a simplistic example to distribute data across a cluster of nodes
 
 ## Features
 
@@ -48,8 +49,14 @@ if err != nil {
 } else {
     fmt.Println("Node removed successfully")
 }
+```
 
 
+## Problems
+
+-  No Function to store keys on different nodes and replicate them for fault-tolerance
+-  A large number of keys can still be mapped to a single server (Hot shard Problem)
+-  Key remapping is not explictly solved in case of addition or removal of a node
 
 
 
