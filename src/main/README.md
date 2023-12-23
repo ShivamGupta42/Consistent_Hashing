@@ -54,8 +54,11 @@ if err != nil {
 
 ## Problems
 
+-  Key LookUp time is O(LogN) where N is the number of servers. Can it be O(1)?
 -  No Function to store keys on different nodes and replicate them for fault-tolerance
 -  A large number of keys can still be mapped to a single server (Hot shard Problem)
+-  No way to allocate more keys to a server with higher capacity
+-  No way of dynamically re-allocating keys in case a server experiences higher load
 -  Key remapping is not explictly solved in case of addition or removal of a node
 
 
